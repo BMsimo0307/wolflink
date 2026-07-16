@@ -6,7 +6,7 @@
 // ─────────────────────────────────────────────────────────────
 const BACKEND_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
     ? `http://${window.location.hostname}:8000`
-    : 'https://VOTRE_APP.onrender.com'; // ← Remplacer après déploiement Render
+    : 'https://wolflink.onrender.com'; // ← Remplacer après déploiement Render
 
 const API_BASE = `${BACKEND_URL}/api`;
 
