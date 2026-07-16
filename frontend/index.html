@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WolfLink - Loup-Garou Companion</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Screen: Home -->
+        <section id="screen-home" class="screen active">
+            <h1 class="logo">🐺 WolfLink</h1>
+            <p class="subtitle">L'application compagnon pour vos parties de Loup-Garou.</p>
+            
+            <div class="actions">
+                <button id="btn-show-create" class="btn btn-primary">Créer une partie</button>
+                <button id="btn-show-join" class="btn btn-secondary">Rejoindre une partie</button>
+            </div>
+        </section>
+
+        <!-- Screen: Create Room -->
+        <section id="screen-create" class="screen hidden">
+            <h2>Créer une partie</h2>
+            <div class="form-group">
+                <label>Nombre de joueurs attendus</label>
+                <input type="number" id="input-num-players" value="6" min="4" max="20" class="input-field">
+            </div>
+            <div class="form-group">
+                <label>Rôles (sélectionnez ceux en jeu)</label>
+                <div class="roles-selection">
+                    <label class="role-chip"><input type="checkbox" value="WEREWOLF" checked> 🐺 Loup-Garou</label>
+                    <label class="role-chip"><input type="checkbox" value="WEREWOLF"> 🐺 Loup-Garou 2</label>
+                    <label class="role-chip"><input type="checkbox" value="SEER" checked> 👁️ Voyante</label>
+                    <label class="role-chip"><input type="checkbox" value="WITCH" checked> 🧪 Sorcière</label>
+                    <label class="role-chip"><input type="checkbox" value="GUARD"> 🛡️ Garde</label>
+                    <label class="role-chip"><input type="checkbox" value="HUNTER"> 🏹 Chasseur</label>
+                </div>
+                <p class="hint">Les places restantes seront automatiquement des Villageois.</p>
+            </div>
+            <button id="btn-create-room" class="btn btn-primary">Générer la salle</button>
+            <button class="btn btn-text btn-back">← Retour</button>
+        </section>
+
+        <!-- Screen: Join Room -->
+        <section id="screen-join" class="screen hidden">
+            <h2>Rejoindre une partie</h2>
+            <div class="form-group">
+                <input type="text" id="input-room-code" placeholder="Code de la salle (ex: A1B2C3)" maxlength="6" class="input-field">
+            </div>
+            <div class="form-group">
+                <input type="text" id="input-player-name" placeholder="Votre Prénom / Pseudo" class="input-field">
+            </div>
+            <button id="btn-join-room" class="btn btn-primary">Rejoindre le Lobby</button>
+            <button class="btn btn-text btn-back">← Retour</button>
+        </section>
+
+        <!-- Screen: Lobby -->
+        <section id="screen-lobby" class="screen hidden">
+            <div class="lobby-header">
+                <h2>Lobby</h2>
+                <div class="room-code-display" id="lobby-room-code">------</div>
+            </div>
+            <p id="lobby-status" class="status-text">En attente des joueurs...</p>
+            
+            <div class="players-list-container">
+                <h3>Joueurs connectés (<span id="player-count">0</span>)</h3>
+                <ul id="players-list"></ul>
+            </div>
+            
+            <button id="btn-start-game" class="btn btn-primary hidden">🎮 Commencer la partie</button>
+        </section>
+
+        <!-- Screen: Player Role Reveal -->
+        <section id="screen-role" class="screen hidden">
+            <h2>Votre Rôle Secret</h2>
+            <div class="card role-card" id="role-card">
+                <div class="role-emoji" id="player-role-emoji">?</div>
+                <h1 id="player-role-name">?</h1>
+                <p class="role-camp" id="player-role-camp"></p>
+                <p id="player-role-desc"></p>
+            </div>
+            <button id="btn-role-seen" class="btn btn-primary">✅ J'ai vu mon rôle</button>
+        </section>
+
+        <!-- Screen: Player Waiting -->
+        <section id="screen-waiting" class="screen hidden">
+            <div class="waiting-container">
+                <div class="pulse-circle"></div>
+                <h2 id="waiting-title">En attente...</h2>
+                <p id="waiting-text">Le narrateur prépare la prochaine phase.</p>
+            </div>
+        </section>
+
+        <!-- Screen: Night Action (Player) -->
+        <section id="screen-night-action" class="screen hidden night-mode">
+            <h2 id="night-action-title">🌙 C'est la nuit</h2>
+            <p id="night-action-desc">Choisissez votre cible :</p>
+            <div id="night-action-targets" class="targets-grid"></div>
+            
+            <!-- Witch special UI -->
+            <div id="witch-panel" class="hidden">
+                <div class="card">
+                    <p>La victime des loups est : <strong id="witch-victim-name">???</strong></p>
+                    <div class="witch-actions">
+                        <button id="btn-witch-save" class="btn btn-heal">💚 Sauver</button>
+                        <button id="btn-witch-nothing" class="btn btn-secondary">Passer</button>
+                    </div>
+                    <hr class="divider">
+                    <p>Utiliser la potion de mort ?</p>
+                    <div id="witch-poison-targets" class="targets-grid"></div>
+                    <button id="btn-witch-no-poison" class="btn btn-secondary">Ne pas empoisonner</button>
+                </div>
+            </div>
+            
+            <button id="btn-confirm-action" class="btn btn-primary hidden">✅ Confirmer</button>
+        </section>
+
+        <!-- Screen: Narrator Dashboard -->
+        <section id="screen-narrator" class="screen hidden">
+            <h2>🎭 Tableau de Bord</h2>
+            <div class="phase-indicator">
+                <span id="current-phase-icon">☀️</span>
+                <span id="current-phase-text">Jour</span>
+                <span class="round-badge">Tour <span id="current-round">1</span></span>
+            </div>
+
+            <div class="narrator-controls">
+                <button id="btn-start-night" class="btn btn-night">🌙 Commencer la nuit</button>
+                <button id="btn-start-day" class="btn btn-day hidden">☀️ Commencer le jour</button>
+                <button id="btn-start-debate" class="btn btn-debate hidden">💬 Débat (40s)</button>
+                <button id="btn-end-game" class="btn btn-danger">🏁 Terminer la partie</button>
+            </div>
+
+            <!-- Debate Timer -->
+            <div id="debate-panel" class="debate-panel hidden">
+                <div class="timer-ring">
+                    <svg viewBox="0 0 100 100" class="timer-svg">
+                        <circle cx="50" cy="50" r="45" class="timer-track"/>
+                        <circle cx="50" cy="50" r="45" class="timer-progress" id="timer-circle"/>
+                    </svg>
+                    <div class="timer-text" id="timer-text">40</div>
+                </div>
+                <p class="timer-label">Temps de débat restant</p>
+                <button id="btn-stop-debate" class="btn btn-secondary">⏹ Arrêter le débat</button>
+            </div>
+
+            <div class="narrator-status">
+                <h3>Statut des actions</h3>
+                <div id="actions-status" class="actions-status-list">
+                    <p class="hint">Démarrez la nuit pour voir les actions en cours.</p>
+                </div>
+            </div>
+
+            <div id="narrator-results" class="results-box hidden">
+                <h3>📋 Résultats de la nuit</h3>
+                <div id="results-content"></div>
+                <button id="btn-dismiss-results" class="btn btn-text">Fermer</button>
+            </div>
+
+            <!-- Vote Panel -->
+            <div id="vote-panel" class="vote-panel hidden">
+                <h3>🗳️ Vote d'élimination</h3>
+                <p class="hint">Sélectionnez le joueur à éliminer (ou passez).</p>
+                <div id="vote-targets" class="targets-grid"></div>
+                <div class="vote-controls">
+                    <button id="btn-confirm-vote" class="btn btn-danger" disabled>💀 Éliminer</button>
+                    <button id="btn-skip-vote" class="btn btn-secondary">Passer le vote</button>
+                </div>
+            </div>
+
+            <div class="players-alive-container">
+                <h3>Joueurs en vie</h3>
+                <ul id="narrator-players-list"></ul>
+            </div>
+        </section>
+
+        <!-- Screen: Game Over -->
+        <section id="screen-gameover" class="screen hidden">
+            <h1 class="logo">🏁 Fin de partie</h1>
+            <div id="gameover-message" class="card"></div>
+            <button id="btn-new-game" class="btn btn-primary">Nouvelle partie</button>
+        </section>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/websocket.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
