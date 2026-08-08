@@ -1,8 +1,4 @@
 // ─────────────────────────────────────────────────────────────
-//  CONFIGURATION
-//  En développement : le backend tourne sur localhost:8000
-//  En production    : remplacez BACKEND_URL par votre URL Render
-//  Exemple : const BACKEND_URL = 'https://wolflink-backend.onrender.com';
 // ─────────────────────────────────────────────────────────────
 const BACKEND_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
     ? `http://${window.location.hostname}:8000`

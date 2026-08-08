@@ -166,6 +166,43 @@ const UI = {
         });
     },
 
+    // Add real-time log for narrator
+    addNarratorLog(data) {
+        const container = document.getElementById('narrator-live-logs');
+        const list = document.getElementById('live-logs-list');
+        
+        container.classList.remove('hidden');
+
+        const li = document.createElement('li');
+        li.className = 'live-log-item';
+        
+        let actionDesc = '';
+        if (data.action_type === 'WITCH_PASS') {
+            actionDesc = 'a décidé de passer.';
+        } else if (data.action_type === 'SEE') {
+            actionDesc = `a regardé le rôle de <strong>${data.target_name || 'quelqu\'un'}</strong>.`;
+        } else if (data.action_type === 'KILL') {
+            actionDesc = `veut dévorer <strong>${data.target_name}</strong>.`;
+        } else if (data.action_type === 'PROTECT') {
+            actionDesc = `protège <strong>${data.target_name}</strong>.`;
+        } else if (data.action_type === 'SAVE') {
+            actionDesc = `a utilisé la potion de vie sur <strong>${data.target_name}</strong>.`;
+        } else if (data.action_type === 'POISON') {
+            actionDesc = `a utilisé la potion de mort sur <strong>${data.target_name}</strong>.`;
+        } else {
+            actionDesc = `a fait l'action ${data.action_type}.`;
+        }
+
+        const roleEmoji = this.ROLE_DATA[data.role] ? this.ROLE_DATA[data.role].emoji : '❓';
+        
+        li.innerHTML = `
+            <span class="log-time">${new Date().toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit', second:'2-digit'})}</span>
+            <span class="log-text">${roleEmoji} <strong>${data.player_name}</strong> ${actionDesc}</span>
+        `;
+        
+        list.prepend(li); // add to top
+    },
+
     // Show night results to narrator
     showNightResults(data) {
         const resultsBox = document.getElementById('narrator-results');

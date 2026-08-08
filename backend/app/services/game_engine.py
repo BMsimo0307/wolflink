@@ -136,6 +136,15 @@ class GameEngine:
                 "type": "action_confirmed",
                 "data": {"message": "Vous avez choisi de passer."}
             }, room_code, client_id)
+            await manager.send_personal_message({
+                "type": "narrator_action_notification",
+                "data": {
+                    "player_name": player.name,
+                    "action_type": action_type,
+                    "target_name": None,
+                    "role": player.role.value
+                }
+            }, room_code, "narrator")
             await self._check_night_complete(room, room_code, round_number)
             return
 
@@ -159,6 +168,17 @@ class GameEngine:
             )
             self.db.add(action)
             self.db.commit()
+            
+            await manager.send_personal_message({
+                "type": "narrator_action_notification",
+                "data": {
+                    "player_name": player.name,
+                    "action_type": action_type,
+                    "target_name": target.name if target else None,
+                    "role": player.role.value
+                }
+            }, room_code, "narrator")
+            
             await self._check_night_complete(room, room_code, round_number)
             return
 
@@ -190,6 +210,23 @@ class GameEngine:
             "type": "action_confirmed",
             "data": {"message": "Votre action a été enregistrée."}
         }, room_code, client_id)
+
+        # Notify narrator about the action in real-time
+        target_name = None
+        if target_id:
+            target_player = self.db.query(models.Player).filter(models.Player.id == target_id).first()
+            if target_player:
+                target_name = target_player.name
+
+        await manager.send_personal_message({
+            "type": "narrator_action_notification",
+            "data": {
+                "player_name": player.name,
+                "action_type": action_type,
+                "target_name": target_name,
+                "role": player.role.value
+            }
+        }, room_code, "narrator")
 
         # After wolf votes, send witch info
         if action_type == "KILL":

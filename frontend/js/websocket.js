@@ -78,6 +78,12 @@ const GameSocket = {
                     }
                     break;
 
+                case 'narrator_action_notification':
+                    if (GameState.isNarrator) {
+                        UI.addNarratorLog(msg.data);
+                    }
+                    break;
+
                 case 'player_eliminated':
                     // All players are notified of a day elimination
                     if (!GameState.isNarrator) {
