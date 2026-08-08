@@ -26,26 +26,36 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, var(--bg-color) 0%, #0f1528 50%, #110d2a) 100%;
+    background: linear-gradient(135deg, var(--bg-color) 0%, #0f1528 50%, #17103a 100%);
+    background-size: 200% 200%;
+    animation: bgAnimate 15s ease infinite;
     color: var(--text-primary);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 16px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+@keyframes bgAnimate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 #app {
     width: 100%;
-    max-width: 480px;
+    height: 100vh;
+    max-width: 600px; /* Limits width on tablets/desktop, but full on mobile */
     background: var(--surface-color);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-radius: var(--border-radius);
-    padding: 32px 28px;
-    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.8), 0 0 40px rgba(168, 85, 247, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    overflow: hidden;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 24px 20px 100px 20px; /* Bottom padding for sticky bar */
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.05);
+    overflow-y: auto;
+    overflow-x: hidden;
     position: relative;
     transition: all 0.3s ease;
 }
@@ -121,20 +131,35 @@ h3 {
 }
 
 .btn {
-    padding: 14px 20px;
+    padding: 16px 24px;
     border: none;
     border-radius: var(--border-radius-sm);
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.05rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     font-family: 'Inter', sans-serif;
     width: 100%;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.btn:active::after {
+    opacity: 1;
 }
 
 .btn:active {
-    transform: scale(0.97);
+    transform: scale(0.96);
 }
 
 .btn-primary {
@@ -416,33 +441,60 @@ input[type="number"] {
 .targets-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin: 16px 0;
+    gap: 12px;
+    margin: 20px 0;
 }
 
 .target-btn {
-    padding: 14px 10px;
-    background: rgba(255, 255, 255, 0.04);
+    padding: 18px 12px;
+    background: rgba(255, 255, 255, 0.05);
     border: 2px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--border-radius-sm);
     color: var(--text-primary);
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 600;
     font-family: 'Inter', sans-serif;
     cursor: pointer;
     transition: all 0.2s;
     text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.target-btn:active {
+    transform: scale(0.95);
 }
 
 .target-btn:hover {
-    border-color: var(--primary-color);
-    background: rgba(139, 92, 246, 0.08);
+    border-color: rgba(168, 85, 247, 0.5);
+    background: rgba(139, 92, 246, 0.1);
 }
 
 .target-btn.selected {
     border-color: var(--primary-color);
-    background: rgba(139, 92, 246, 0.15);
-    box-shadow: 0 0 12px var(--primary-glow);
+    background: rgba(139, 92, 246, 0.2);
+    box-shadow: 0 0 16px var(--primary-glow);
+    transform: scale(1.02);
+}
+
+/* ==================== STICKY BOTTOM BAR ==================== */
+.sticky-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 600px;
+    padding: 16px 20px 32px 20px; /* Extra padding for iPhone notch */
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 40%, rgba(10, 10, 10, 0));
+    pointer-events: none;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.sticky-bottom > * {
+    pointer-events: auto;
 }
 
 /* ==================== WITCH ==================== */
