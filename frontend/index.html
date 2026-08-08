@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WolfLink - Loup-Garou Companion</title>
+    
+    <!-- PWA / Mobile Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="assets/icon.svg">
+
+    <!-- AdSense Placeholder (Remplacez par votre vrai script Google AdSense) -->
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
@@ -189,9 +200,25 @@
         </section>
     </div>
 
+    <!-- Global Ad Banner Placeholder -->
+    <div id="ad-container" class="ad-banner">
+        <!-- L'emplacement où la publicité Google s'affichera -->
+    </div>
+
     <script src="js/api.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/websocket.js"></script>
     <script src="js/main.js"></script>
+
+    <!-- Service Worker Registration for PWA -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('Service Worker enregistré', reg.scope))
+                    .catch(err => console.error('Erreur Service Worker', err));
+            });
+        }
+    </script>
 </body>
 </html>
