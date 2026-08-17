@@ -25,18 +25,22 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     background: linear-gradient(135deg, var(--bg-color) 0%, #0f1528 50%, #17103a 100%);
     background-size: 200% 200%;
     animation: bgAnimate 15s ease infinite;
     color: var(--text-primary);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
+    height: auto;
     padding: 0;
     margin: 0;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Emoji Font Fallback Helper */
+.hero-emoji, .card-icon, .role-icon, .role-emoji, .showcase-hero, .role-card {
+    font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Android Emoji', 'EmojiOne Color', sans-serif !important;
 }
 
 @keyframes bgAnimate {

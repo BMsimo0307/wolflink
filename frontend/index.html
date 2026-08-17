@@ -14,7 +14,8 @@
     <link rel="apple-touch-icon" href="assets/icon.svg">
 
     <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6605950128677335" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6605950128677335"
+        crossorigin="anonymous"></script>
 
     <!-- Google Identity Services SDK -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -34,327 +35,300 @@
                 </div>
                 <button id="btn-logout" class="btn-logout" title="Déconnexion">🚪</button>
             </div>
-        <!-- Screen: Home -->
-        <section id="screen-home" class="screen active">
-            <h1 class="logo">🐺 WolfLink</h1>
-            <p class="subtitle">L'application compagnon pour vos parties de Loup-Garou.</p>
+            <!-- Screen: Home -->
+            <section id="screen-home" class="screen active">
+                <h1 class="logo">🐺 WolfLink</h1>
+                <p class="subtitle">L'application compagnon pour vos parties de Loup-Garou.</p>
 
-            <!-- Auth Section (Se connecter / Invité) -->
-            <div id="auth-section" class="auth-box">
-                <h3>🔑 Connexion / Profil</h3>
-                
-                <!-- Google Sign-In Button Slot -->
-                <div id="g_id_onload"
-                     data-client_id="241028658302-0i5b9ksjbf1dbgva9c63ljo86js4pcvs.apps.googleusercontent.com"
-                     data-callback="handleGoogleCallback"
-                     data-auto_prompt="false">
-                </div>
-                
-                <div class="auth-buttons">
-                    <!-- Google Button UI -->
-                    <div class="g_id_signin"
-                         data-type="standard"
-                         data-shape="pill"
-                         data-theme="filled_black"
-                         data-text="signin_with"
-                         data-size="large"
-                         data-logo_alignment="left">
+                <!-- Auth Section (Se connecter / Invité) -->
+                <div id="auth-section" class="auth-box">
+                    <h3>🔑 Connexion / Profil</h3>
+
+                    <!-- Google Sign-In Button Slot -->
+                    <div id="g_id_onload"
+                        data-client_id="241028658302-0i5b9ksjbf1dbgva9c63ljo86js4pcvs.apps.googleusercontent.com"
+                        data-callback="handleGoogleCallback" data-auto_prompt="false">
                     </div>
 
-                    <div class="auth-divider"><span>OU</span></div>
+                    <div class="auth-buttons">
+                        <!-- Google Button UI -->
+                        <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="filled_black"
+                            data-text="signin_with" data-size="large" data-logo_alignment="left">
+                        </div>
 
-                    <!-- Quick Guest Login -->
-                    <div class="guest-login-form">
-                        <input type="text" id="input-guest-name" placeholder="Votre Pseudo (Mode Invité)" class="input-field">
-                        <button id="btn-guest-login" class="btn btn-secondary btn-sm">Se connecter en Invité</button>
-                    </div>
-                </div>
-            </div>
+                        <div class="auth-divider"><span>OU</span></div>
 
-            <div class="actions">
-                <button id="btn-show-create" class="btn btn-primary">Créer une partie</button>
-                <button id="btn-show-join" class="btn btn-secondary">Rejoindre une partie</button>
-            </div>
-
-            <!-- Interactive Role Showcase Carousel (Mobile & Desktop) -->
-            <div class="role-showcase-container home-showcase">
-                <div class="showcase-header">
-                    <span class="showcase-camp camp-wolves" id="showcase-role-camp">Camp des Loups-Garous</span>
-                    <h2 class="showcase-title" id="showcase-role-name">Loup-Garou</h2>
-                    <p class="showcase-desc" id="showcase-role-desc">Durant la nuit, les Loups-Garous se réunissent pour désigner un villageois à dévorer. Pendant la journée, ils doivent camoufler leur identité.</p>
-                </div>
-
-                <!-- Hero Circle Ring with central icon -->
-                <div class="showcase-hero">
-                    <div class="hero-ring">
-                        <span class="hero-emoji" id="showcase-role-emoji">🐺</span>
+                        <!-- Quick Guest Login -->
+                        <div class="guest-login-form">
+                            <input type="text" id="input-guest-name" placeholder="Votre Pseudo (Mode Invité)"
+                                class="input-field">
+                            <button id="btn-guest-login" class="btn btn-secondary btn-sm">Se connecter en
+                                Invité</button>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Carousel Controls & Track -->
-                <div class="showcase-carousel-wrapper">
-                    <button class="carousel-arrow left" id="btn-carousel-prev">‹</button>
-                    <div class="carousel-track" id="carousel-track">
-                        <!-- Dynamic cards rendered by roles-carousel.js -->
+                <div class="actions">
+                    <button id="btn-show-create" class="btn btn-primary">Créer une partie</button>
+                    <button id="btn-show-join" class="btn btn-secondary">Rejoindre une partie</button>
+                </div>
+
+                <!-- Interactive Role Showcase Carousel (Mobile & Desktop) -->
+                <div class="role-showcase-container home-showcase">
+                    <div class="showcase-header">
+                        <span class="showcase-camp camp-wolves" id="showcase-role-camp">Camp des Loups-Garous</span>
+                        <h2 class="showcase-title" id="showcase-role-name">Loup-Garou</h2>
+                        <p class="showcase-desc" id="showcase-role-desc">Durant la nuit, les Loups-Garous se réunissent
+                            pour désigner un villageois à dévorer. Pendant la journée, ils doivent camoufler leur
+                            identité.</p>
                     </div>
-                    <button class="carousel-arrow right" id="btn-carousel-next">›</button>
+
+                    <!-- Hero Circle Ring with central icon -->
+                    <div class="showcase-hero">
+                        <div class="hero-ring">
+                            <span class="hero-emoji" id="showcase-role-emoji">🐺</span>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Controls & Track -->
+                    <div class="showcase-carousel-wrapper">
+                        <button class="carousel-arrow left" id="btn-carousel-prev">‹</button>
+                        <div class="carousel-track" id="carousel-track">
+                            <!-- Dynamic cards rendered by roles-carousel.js -->
+                        </div>
+                        <button class="carousel-arrow right" id="btn-carousel-next">›</button>
+                    </div>
+                    <p class="showcase-hint">Cliquez sur un des autres rôles pour le découvrir</p>
                 </div>
-                <p class="showcase-hint">Cliquez sur un des autres rôles pour le découvrir</p>
-            </div>
-        </section>
+            </section>
 
-        <!-- Screen: Create Room -->
-        <section id="screen-create" class="screen hidden">
-            <h2>Créer une partie</h2>
-            <div class="form-group">
-                <label>Nombre de joueurs attendus</label>
-                <input type="number" id="input-num-players" value="6" min="4" max="20" class="input-field">
-            </div>
-            <div class="form-group">
-                <label>Rôles (sélectionnez ceux en jeu)</label>
-                <div class="roles-selection">
-                    <label class="role-chip"><input type="checkbox" value="WEREWOLF" checked> 🐺 Loup-Garou</label>
-                    <label class="role-chip"><input type="checkbox" value="WEREWOLF"> 🐺 Loup-Garou 2</label>
-                    <label class="role-chip"><input type="checkbox" value="SEER" checked> 👁️ Voyante</label>
-                    <label class="role-chip"><input type="checkbox" value="WITCH" checked> 🧪 Sorcière</label>
-                    <label class="role-chip"><input type="checkbox" value="GUARD"> 🛡️ Garde</label>
-                    <label class="role-chip"><input type="checkbox" value="HUNTER"> 🏹 Chasseur</label>
+            <!-- Screen: Create Room -->
+            <section id="screen-create" class="screen hidden">
+                <h2>Créer une partie</h2>
+                <div class="form-group">
+                    <label>Nombre de joueurs attendus</label>
+                    <input type="number" id="input-num-players" value="6" min="4" max="20" class="input-field">
                 </div>
-                <p class="hint">Les places restantes seront automatiquement des Villageois.</p>
-            </div>
-            <button id="btn-create-room" class="btn btn-primary">Générer la salle</button>
-            <button class="btn btn-text btn-back">← Retour</button>
-        </section>
+                <div class="form-group">
+                    <label>Rôles (sélectionnez ceux en jeu)</label>
+                    <div class="roles-selection">
+                        <label class="role-chip"><input type="checkbox" value="WEREWOLF" checked> 🐺 Loup-Garou</label>
+                        <label class="role-chip"><input type="checkbox" value="WEREWOLF"> 🐺 Loup-Garou 2</label>
+                        <label class="role-chip"><input type="checkbox" value="SEER" checked> 👁️ Voyante</label>
+                        <label class="role-chip"><input type="checkbox" value="WITCH" checked> 🧪 Sorcière</label>
+                        <label class="role-chip"><input type="checkbox" value="GUARD"> 🛡️ Garde</label>
+                        <label class="role-chip"><input type="checkbox" value="HUNTER"> 🏹 Chasseur</label>
+                    </div>
+                    <p class="hint">Les places restantes seront automatiquement des Villageois.</p>
+                </div>
+                <button id="btn-create-room" class="btn btn-primary">Générer la salle</button>
+                <button class="btn btn-text btn-back">← Retour</button>
+            </section>
 
-        <!-- Screen: Join Room -->
-        <section id="screen-join" class="screen hidden">
-            <h2>Rejoindre une partie</h2>
-            <div class="form-group">
-                <input type="text" id="input-room-code" placeholder="Code de la salle (ex: A1B2C3)" maxlength="6"
-                    class="input-field">
-            </div>
-            <div class="form-group">
-                <input type="text" id="input-player-name" placeholder="Votre Prénom / Pseudo" class="input-field">
-            </div>
-            <button id="btn-join-room" class="btn btn-primary">Rejoindre le Lobby</button>
-            <button class="btn btn-text btn-back">← Retour</button>
-        </section>
+            <!-- Screen: Join Room -->
+            <section id="screen-join" class="screen hidden">
+                <h2>Rejoindre une partie</h2>
+                <div class="form-group">
+                    <input type="text" id="input-room-code" placeholder="Code de la salle (ex: A1B2C3)" maxlength="6"
+                        class="input-field">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="input-player-name" placeholder="Votre Prénom / Pseudo" class="input-field">
+                </div>
+                <button id="btn-join-room" class="btn btn-primary">Rejoindre le Lobby</button>
+                <button class="btn btn-text btn-back">← Retour</button>
+            </section>
 
-        <!-- Screen: Lobby -->
-        <section id="screen-lobby" class="screen hidden">
-            <div class="lobby-header">
-                <h2>Lobby</h2>
-                <div class="room-code-display" id="lobby-room-code">------</div>
-            </div>
-            <p id="lobby-status" class="status-text">En attente des joueurs...</p>
+            <!-- Screen: Lobby -->
+            <section id="screen-lobby" class="screen hidden">
+                <div class="lobby-header">
+                    <h2>Lobby</h2>
+                    <div class="room-code-display" id="lobby-room-code">------</div>
+                </div>
+                <p id="lobby-status" class="status-text">En attente des joueurs...</p>
 
-            <div class="players-list-container">
-                <h3>Joueurs connectés (<span id="player-count">0</span>)</h3>
-                <ul id="players-list"></ul>
-            </div>
+                <div class="players-list-container">
+                    <h3>Joueurs connectés (<span id="player-count">0</span>)</h3>
+                    <ul id="players-list"></ul>
+                </div>
 
-            <button id="btn-start-game" class="btn btn-primary hidden">🎮 Commencer la partie</button>
-        </section>
+                <button id="btn-start-game" class="btn btn-primary hidden">🎮 Commencer la partie</button>
+            </section>
 
-        <!-- Screen: Player Role Reveal -->
-        <section id="screen-role" class="screen hidden">
-            <h2>Votre Rôle Secret</h2>
-            <div class="card role-card" id="role-card">
-                <div class="role-emoji" id="player-role-emoji">?</div>
-                <h1 id="player-role-name">?</h1>
-                <p class="role-camp" id="player-role-camp"></p>
-                <p id="player-role-desc"></p>
-            </div>
-            <div class="sticky-bottom">
-                <button id="btn-role-seen" class="btn btn-primary">✅ J'ai vu mon rôle</button>
-            </div>
-        </section>
+            <!-- Screen: Player Role Reveal -->
+            <section id="screen-role" class="screen hidden">
+                <h2>Votre Rôle Secret</h2>
+                <div class="card role-card" id="role-card">
+                    <div class="role-emoji" id="player-role-emoji">?</div>
+                    <h1 id="player-role-name">?</h1>
+                    <p class="role-camp" id="player-role-camp"></p>
+                    <p id="player-role-desc"></p>
+                </div>
+                <div class="sticky-bottom">
+                    <button id="btn-role-seen" class="btn btn-primary">✅ J'ai vu mon rôle</button>
+                </div>
+            </section>
 
-        <!-- Screen: Player Waiting -->
-        <section id="screen-waiting" class="screen hidden">
-            <div class="waiting-container">
-                <div class="pulse-circle"></div>
-                <h2 id="waiting-title">En attente...</h2>
-                <p id="waiting-text">Le narrateur prépare la prochaine phase.</p>
+            <!-- Screen: Player Waiting -->
+            <section id="screen-waiting" class="screen hidden">
+                <div class="waiting-container">
+                    <div class="pulse-circle"></div>
+                    <h2 id="waiting-title">En attente...</h2>
+                    <p id="waiting-text">Le narrateur prépare la prochaine phase.</p>
 
-                <!-- Ad Slot during waiting time -->
-                <div class="ad-banner" id="ad-waiting-slot">
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-6605950128677335"
-                         data-ad-format="auto"
-                         data-full-width-responsive="true"></ins>
+                    <!-- Ad Slot during waiting time -->
+                    <div class="ad-banner" id="ad-waiting-slot">
+                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6605950128677335"
+                            data-ad-format="auto" data-full-width-responsive="true"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Screen: Night Action (Player) -->
+            <section id="screen-night-action" class="screen hidden night-mode">
+                <h2 id="night-action-title">🌙 C'est la nuit</h2>
+                <p id="night-action-desc">Choisissez votre cible :</p>
+                <div id="night-action-targets" class="targets-grid"></div>
+
+                <!-- Witch special UI -->
+                <div id="witch-panel" class="hidden">
+                    <div class="card">
+                        <p>La victime des loups est : <strong id="witch-victim-name">???</strong></p>
+                        <div class="witch-actions">
+                            <button id="btn-witch-save" class="btn btn-heal">💚 Sauver</button>
+                            <button id="btn-witch-nothing" class="btn btn-secondary">Passer</button>
+                        </div>
+                        <hr class="divider">
+                        <p>Utiliser la potion de mort ?</p>
+                        <div id="witch-poison-targets" class="targets-grid"></div>
+                        <button id="btn-witch-no-poison" class="btn btn-secondary">Ne pas empoisonner</button>
+                    </div>
+                </div>
+
+                <div class="sticky-bottom">
+                    <button id="btn-confirm-action" class="btn btn-primary hidden">✅ Confirmer</button>
+                </div>
+            </section>
+
+            <!-- Screen: Narrator Dashboard -->
+            <section id="screen-narrator" class="screen hidden">
+                <h2>🎭 Tableau de Bord</h2>
+                <div class="phase-indicator">
+                    <span id="current-phase-icon">☀️</span>
+                    <span id="current-phase-text">Jour</span>
+                    <span class="round-badge">Tour <span id="current-round">1</span></span>
+                </div>
+
+                <div class="narrator-controls">
+                    <button id="btn-start-night" class="btn btn-night">🌙 Commencer la nuit</button>
+                    <button id="btn-start-day" class="btn btn-day hidden">☀️ Commencer le jour</button>
+                    <button id="btn-start-debate" class="btn btn-debate hidden">💬 Débat (40s)</button>
+                    <button id="btn-end-game" class="btn btn-danger">🏁 Terminer la partie</button>
+                </div>
+
+                <!-- Debate Timer -->
+                <div id="debate-panel" class="debate-panel hidden">
+                    <div class="timer-ring">
+                        <svg viewBox="0 0 100 100" class="timer-svg">
+                            <circle cx="50" cy="50" r="45" class="timer-track" />
+                            <circle cx="50" cy="50" r="45" class="timer-progress" id="timer-circle" />
+                        </svg>
+                        <div class="timer-text" id="timer-text">40</div>
+                    </div>
+                    <p class="timer-label">Temps de débat restant</p>
+                    <button id="btn-stop-debate" class="btn btn-secondary">⏹ Arrêter le débat</button>
+                </div>
+
+                <div class="narrator-status">
+                    <h3>Statut des actions</h3>
+                    <div id="actions-status" class="actions-status-list">
+                        <p class="hint">Démarrez la nuit pour voir les actions en cours.</p>
+                    </div>
+                </div>
+
+                <div id="narrator-live-logs" class="live-logs-container hidden">
+                    <h3>📜 Journal d'Activité</h3>
+                    <ul id="live-logs-list"></ul>
+                </div>
+
+                <div id="narrator-results" class="results-box hidden">
+                    <h3>📋 Résultats de la nuit</h3>
+                    <div id="results-content"></div>
+                    <button id="btn-dismiss-results" class="btn btn-text">Fermer</button>
+                </div>
+
+                <!-- Vote Panel -->
+                <div id="vote-panel" class="vote-panel hidden">
+                    <h3>🗳️ Vote d'élimination</h3>
+                    <p class="hint">Sélectionnez le joueur à éliminer (ou passez).</p>
+                    <div id="vote-targets" class="targets-grid"></div>
+                    <div class="vote-controls">
+                        <button id="btn-confirm-vote" class="btn btn-danger" disabled>💀 Éliminer</button>
+                        <button id="btn-skip-vote" class="btn btn-secondary">Passer le vote</button>
+                    </div>
+                </div>
+
+                <div class="players-alive-container">
+                    <h3>Joueurs en vie</h3>
+                    <ul id="narrator-players-list"></ul>
+                </div>
+            </section>
+
+            <!-- Screen: Game Over -->
+            <section id="screen-gameover" class="screen hidden">
+                <h1 class="logo">🏁 Fin de partie</h1>
+                <div id="gameover-message" class="card"></div>
+                <button id="btn-new-game" class="btn btn-primary">Nouvelle partie</button>
+                <!-- Compact Ad Banner at the bottom of the app -->
+                <div id="ad-container" class="ad-banner">
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6605950128677335"
+                        data-ad-format="auto" data-full-width-responsive="true"></ins>
                     <script>
-                         (adsbygoogle = window.adsbygoogle || []).push({});
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+        </div> <!-- End #app -->
+
+        <!-- Desktop Sidebar (Visible on screens >= 900px) -->
+        <aside id="desktop-sidebar" class="desktop-sidebar">
+            <div class="sidebar-content">
+                <header class="sidebar-header">
+                    <h2>🐺 À propos de WolfLink</h2>
+                    <p>L'application compagnon ultime pour animer vos soirées <strong>Loup-Garou</strong> entre amis,
+                        sans cartes physiques ni triche !</p>
+                </header>
+
+                <div class="sidebar-section">
+                    <h3>🎮 Comment jouer ?</h3>
+                    <ol class="steps-list">
+                        <li><span class="step-num">1</span>
+                            <div><strong>Le Narrateur</strong> crée la partie et sélectionne les rôles en jeu (Loups,
+                                Voyante, Sorcière, etc.).</div>
+                        </li>
+                        <li><span class="step-num">2</span>
+                            <div><strong>Les Joueurs</strong> rejoignent la salle sur leur téléphone avec le code à 6
+                                caractères.</div>
+                        </li>
+                        <li><span class="step-num">3</span>
+                            <div><strong>Partie en direct !</strong> L'appli orchestre les actions de nuit en secret et
+                                gère le chrono de débat le jour.</div>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- AdSense Sidebar Banner -->
+                <div class="sidebar-ad-box">
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6605950128677335"
+                        data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
                 </div>
             </div>
-        </section>
-
-        <!-- Screen: Night Action (Player) -->
-        <section id="screen-night-action" class="screen hidden night-mode">
-            <h2 id="night-action-title">🌙 C'est la nuit</h2>
-            <p id="night-action-desc">Choisissez votre cible :</p>
-            <div id="night-action-targets" class="targets-grid"></div>
-
-            <!-- Witch special UI -->
-            <div id="witch-panel" class="hidden">
-                <div class="card">
-                    <p>La victime des loups est : <strong id="witch-victim-name">???</strong></p>
-                    <div class="witch-actions">
-                        <button id="btn-witch-save" class="btn btn-heal">💚 Sauver</button>
-                        <button id="btn-witch-nothing" class="btn btn-secondary">Passer</button>
-                    </div>
-                    <hr class="divider">
-                    <p>Utiliser la potion de mort ?</p>
-                    <div id="witch-poison-targets" class="targets-grid"></div>
-                    <button id="btn-witch-no-poison" class="btn btn-secondary">Ne pas empoisonner</button>
-                </div>
-            </div>
-
-            <div class="sticky-bottom">
-                <button id="btn-confirm-action" class="btn btn-primary hidden">✅ Confirmer</button>
-            </div>
-        </section>
-
-        <!-- Screen: Narrator Dashboard -->
-        <section id="screen-narrator" class="screen hidden">
-            <h2>🎭 Tableau de Bord</h2>
-            <div class="phase-indicator">
-                <span id="current-phase-icon">☀️</span>
-                <span id="current-phase-text">Jour</span>
-                <span class="round-badge">Tour <span id="current-round">1</span></span>
-            </div>
-
-            <div class="narrator-controls">
-                <button id="btn-start-night" class="btn btn-night">🌙 Commencer la nuit</button>
-                <button id="btn-start-day" class="btn btn-day hidden">☀️ Commencer le jour</button>
-                <button id="btn-start-debate" class="btn btn-debate hidden">💬 Débat (40s)</button>
-                <button id="btn-end-game" class="btn btn-danger">🏁 Terminer la partie</button>
-            </div>
-
-            <!-- Debate Timer -->
-            <div id="debate-panel" class="debate-panel hidden">
-                <div class="timer-ring">
-                    <svg viewBox="0 0 100 100" class="timer-svg">
-                        <circle cx="50" cy="50" r="45" class="timer-track" />
-                        <circle cx="50" cy="50" r="45" class="timer-progress" id="timer-circle" />
-                    </svg>
-                    <div class="timer-text" id="timer-text">40</div>
-                </div>
-                <p class="timer-label">Temps de débat restant</p>
-                <button id="btn-stop-debate" class="btn btn-secondary">⏹ Arrêter le débat</button>
-            </div>
-
-            <div class="narrator-status">
-                <h3>Statut des actions</h3>
-                <div id="actions-status" class="actions-status-list">
-                    <p class="hint">Démarrez la nuit pour voir les actions en cours.</p>
-                </div>
-            </div>
-
-            <div id="narrator-live-logs" class="live-logs-container hidden">
-                <h3>📜 Journal d'Activité</h3>
-                <ul id="live-logs-list"></ul>
-            </div>
-
-            <div id="narrator-results" class="results-box hidden">
-                <h3>📋 Résultats de la nuit</h3>
-                <div id="results-content"></div>
-                <button id="btn-dismiss-results" class="btn btn-text">Fermer</button>
-            </div>
-
-            <!-- Vote Panel -->
-            <div id="vote-panel" class="vote-panel hidden">
-                <h3>🗳️ Vote d'élimination</h3>
-                <p class="hint">Sélectionnez le joueur à éliminer (ou passez).</p>
-                <div id="vote-targets" class="targets-grid"></div>
-                <div class="vote-controls">
-                    <button id="btn-confirm-vote" class="btn btn-danger" disabled>💀 Éliminer</button>
-                    <button id="btn-skip-vote" class="btn btn-secondary">Passer le vote</button>
-                </div>
-            </div>
-
-            <div class="players-alive-container">
-                <h3>Joueurs en vie</h3>
-                <ul id="narrator-players-list"></ul>
-            </div>
-        </section>
-
-        <!-- Screen: Game Over -->
-        <section id="screen-gameover" class="screen hidden">
-            <h1 class="logo">🏁 Fin de partie</h1>
-            <div id="gameover-message" class="card"></div>
-            <button id="btn-new-game" class="btn btn-primary">Nouvelle partie</button>
-        <!-- Compact Ad Banner at the bottom of the app -->
-        <div id="ad-container" class="ad-banner">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-6605950128677335"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-    </div> <!-- End #app -->
-
-    <!-- Desktop Sidebar (Visible on screens >= 900px) -->
-    <aside id="desktop-sidebar" class="desktop-sidebar">
-        <div class="sidebar-content">
-            <header class="sidebar-header">
-                <h2>🐺 À propos de WolfLink</h2>
-                <p>L'application compagnon ultime pour animer vos soirées <strong>Loup-Garou</strong> entre amis, sans cartes physiques ni triche !</p>
-            </header>
-
-            <div class="sidebar-section">
-                <h3>🎮 Comment jouer ?</h3>
-                <ol class="steps-list">
-                    <li><span class="step-num">1</span> <div><strong>Le Narrateur</strong> crée la partie et sélectionne les rôles en jeu (Loups, Voyante, Sorcière, etc.).</div></li>
-                    <li><span class="step-num">2</span> <div><strong>Les Joueurs</strong> rejoignent la salle sur leur téléphone avec le code à 6 caractères.</div></li>
-                    <li><span class="step-num">3</span> <div><strong>Partie en direct !</strong> L'appli orchestre les actions de nuit en secret et gère le chrono de débat le jour.</div></li>
-                </ol>
-            </div>
-
-            <div class="sidebar-section">
-                <h3>🎭 Liste des Rôles</h3>
-                <div class="roles-mini-grid">
-                    <div class="role-mini-card">
-                        <span class="role-icon">🐺</span>
-                        <div><strong>Loup-Garou</strong><p>Se réveille la nuit pour dévorer un villageois.</p></div>
-                    </div>
-                    <div class="role-mini-card">
-                        <span class="role-icon">👁️</span>
-                        <div><strong>Voyante</strong><p>Découvre l'identité secrète d'un joueur.</p></div>
-                    </div>
-                    <div class="role-mini-card">
-                        <span class="role-icon">🧪</span>
-                        <div><strong>Sorcière</strong><p>Possède une potion de vie et une de mort.</p></div>
-                    </div>
-                    <div class="role-mini-card">
-                        <span class="role-icon">🛡️</span>
-                        <div><strong>Garde</strong><p>Protège un joueur des attaques nocturnes.</p></div>
-                    </div>
-                    <div class="role-mini-card">
-                        <span class="role-icon">🏹</span>
-                        <div><strong>Chasseur</strong><p>Élimine un joueur au moment de sa mort.</p></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- AdSense Sidebar Banner -->
-            <div class="sidebar-ad-box">
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-6605950128677335"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-        </div>
-    </aside>
+        </aside>
     </div> <!-- End .app-layout -->
 
     <script src="js/auth.js"></script>
