@@ -1041,6 +1041,11 @@ input[type="number"] {
     }
 
 /* ==================== ROLE CAROUSEL SHOWCASE ==================== */
+.home-showcase {
+    margin-top: 24px;
+    width: 100%;
+}
+
 .role-showcase-container {
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.08);

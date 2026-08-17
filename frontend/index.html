@@ -75,6 +75,32 @@
                 <button id="btn-show-create" class="btn btn-primary">Créer une partie</button>
                 <button id="btn-show-join" class="btn btn-secondary">Rejoindre une partie</button>
             </div>
+
+            <!-- Interactive Role Showcase Carousel (Mobile & Desktop) -->
+            <div class="role-showcase-container home-showcase">
+                <div class="showcase-header">
+                    <span class="showcase-camp camp-wolves" id="showcase-role-camp">Camp des Loups-Garous</span>
+                    <h2 class="showcase-title" id="showcase-role-name">Loup-Garou</h2>
+                    <p class="showcase-desc" id="showcase-role-desc">Durant la nuit, les Loups-Garous se réunissent pour désigner un villageois à dévorer. Pendant la journée, ils doivent camoufler leur identité.</p>
+                </div>
+
+                <!-- Hero Circle Ring with central icon -->
+                <div class="showcase-hero">
+                    <div class="hero-ring">
+                        <span class="hero-emoji" id="showcase-role-emoji">🐺</span>
+                    </div>
+                </div>
+
+                <!-- Carousel Controls & Track -->
+                <div class="showcase-carousel-wrapper">
+                    <button class="carousel-arrow left" id="btn-carousel-prev">‹</button>
+                    <div class="carousel-track" id="carousel-track">
+                        <!-- Dynamic cards rendered by roles-carousel.js -->
+                    </div>
+                    <button class="carousel-arrow right" id="btn-carousel-next">›</button>
+                </div>
+                <p class="showcase-hint">Cliquez sur un des autres rôles pour le découvrir</p>
+            </div>
         </section>
 
         <!-- Screen: Create Room -->
@@ -291,32 +317,28 @@
             </div>
 
             <div class="sidebar-section">
-                <h3>🎭 Découvrir les Rôles</h3>
-                
-                <!-- Interactive Role Showcase Carousel -->
-                <div class="role-showcase-container">
-                    <div class="showcase-header">
-                        <span class="showcase-camp camp-wolves" id="showcase-role-camp">Camp des Loups-Garous</span>
-                        <h2 class="showcase-title" id="showcase-role-name">Loup-Garou</h2>
-                        <p class="showcase-desc" id="showcase-role-desc">Durant la nuit, les Loups-Garous se réunissent pour désigner un villageois à dévorer. Pendant la journée, ils doivent camoufler leur identité.</p>
+                <h3>🎭 Liste des Rôles</h3>
+                <div class="roles-mini-grid">
+                    <div class="role-mini-card">
+                        <span class="role-icon">🐺</span>
+                        <div><strong>Loup-Garou</strong><p>Se réveille la nuit pour dévorer un villageois.</p></div>
                     </div>
-
-                    <!-- Hero Circle Ring with central icon -->
-                    <div class="showcase-hero">
-                        <div class="hero-ring">
-                            <span class="hero-emoji" id="showcase-role-emoji">🐺</span>
-                        </div>
+                    <div class="role-mini-card">
+                        <span class="role-icon">👁️</span>
+                        <div><strong>Voyante</strong><p>Découvre l'identité secrète d'un joueur.</p></div>
                     </div>
-
-                    <!-- Carousel Controls & Track -->
-                    <div class="showcase-carousel-wrapper">
-                        <button class="carousel-arrow left" id="btn-carousel-prev">‹</button>
-                        <div class="carousel-track" id="carousel-track">
-                            <!-- Dynamic cards rendered by roles-carousel.js -->
-                        </div>
-                        <button class="carousel-arrow right" id="btn-carousel-next">›</button>
+                    <div class="role-mini-card">
+                        <span class="role-icon">🧪</span>
+                        <div><strong>Sorcière</strong><p>Possède une potion de vie et une de mort.</p></div>
                     </div>
-                    <p class="showcase-hint">Cliquez sur un des autres rôles pour le découvrir</p>
+                    <div class="role-mini-card">
+                        <span class="role-icon">🛡️</span>
+                        <div><strong>Garde</strong><p>Protège un joueur des attaques nocturnes.</p></div>
+                    </div>
+                    <div class="role-mini-card">
+                        <span class="role-icon">🏹</span>
+                        <div><strong>Chasseur</strong><p>Élimine un joueur au moment de sa mort.</p></div>
+                    </div>
                 </div>
             </div>
 
