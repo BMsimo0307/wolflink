@@ -81,12 +81,14 @@ const Auth = {
 
     updateUI() {
         const profileBar = document.getElementById('user-profile-bar');
+        const authSection = document.getElementById('auth-section');
         const userNameEl = document.getElementById('user-profile-name');
         const userAvatarEl = document.getElementById('user-profile-avatar');
         const playerInput = document.getElementById('input-player-name');
 
         if (this.user) {
             if (profileBar) profileBar.classList.remove('hidden');
+            if (authSection) authSection.classList.add('hidden');
             if (userNameEl) userNameEl.innerText = this.user.name;
             if (userAvatarEl) {
                 if (this.user.avatar_url) {
@@ -102,8 +104,14 @@ const Auth = {
             }
         } else {
             if (profileBar) profileBar.classList.add('hidden');
+            if (authSection) authSection.classList.remove('hidden');
         }
     }
+};
+
+// Global Google callback for GSI SDK
+window.handleGoogleCallback = (response) => {
+    Auth.handleGoogleCallback(response);
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -112,5 +120,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const logoutBtn = document.getElementById('btn-logout');
     if (logoutBtn) {
         logoutBtn.addEventListener('click', () => Auth.logout());
+    }
+
+    const guestBtn = document.getElementById('btn-guest-login');
+    if (guestBtn) {
+        guestBtn.addEventListener('click', () => {
+            const guestInput = document.getElementById('input-guest-name');
+            const name = guestInput ? guestInput.value.trim() : '';
+            if (!name) {
+                alert('Veuillez entrer un pseudo pour le mode Invité.');
+                return;
+            }
+            Auth.loginGuest(name);
+        });
     }
 });

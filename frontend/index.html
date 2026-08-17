@@ -39,6 +39,38 @@
             <h1 class="logo">🐺 WolfLink</h1>
             <p class="subtitle">L'application compagnon pour vos parties de Loup-Garou.</p>
 
+            <!-- Auth Section (Se connecter / Invité) -->
+            <div id="auth-section" class="auth-box">
+                <h3>🔑 Connexion / Profil</h3>
+                
+                <!-- Google Sign-In Button Slot -->
+                <div id="g_id_onload"
+                     data-client_id="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
+                     data-callback="handleGoogleCallback"
+                     data-auto_prompt="false">
+                </div>
+                
+                <div class="auth-buttons">
+                    <!-- Google Button UI -->
+                    <div class="g_id_signin"
+                         data-type="standard"
+                         data-shape="pill"
+                         data-theme="filled_black"
+                         data-text="signin_with"
+                         data-size="large"
+                         data-logo_alignment="left">
+                    </div>
+
+                    <div class="auth-divider"><span>OU</span></div>
+
+                    <!-- Quick Guest Login -->
+                    <div class="guest-login-form">
+                        <input type="text" id="input-guest-name" placeholder="Votre Pseudo (Mode Invité)" class="input-field">
+                        <button id="btn-guest-login" class="btn btn-secondary btn-sm">Se connecter en Invité</button>
+                    </div>
+                </div>
+            </div>
+
             <div class="actions">
                 <button id="btn-show-create" class="btn btn-primary">Créer une partie</button>
                 <button id="btn-show-join" class="btn btn-secondary">Rejoindre une partie</button>
