@@ -21,7 +21,8 @@
 </head>
 
 <body>
-    <div id="app">
+    <div class="app-layout">
+        <div id="app">
         <!-- Screen: Home -->
         <section id="screen-home" class="screen active">
             <h1 class="logo">🐺 WolfLink</h1>
@@ -218,6 +219,79 @@
             <button id="btn-new-game" class="btn btn-primary">Nouvelle partie</button>
         </section>
     </div>
+
+    <!-- Desktop Sidebar (Visible on screens >= 900px) -->
+    <aside id="desktop-sidebar" class="desktop-sidebar">
+        <div class="sidebar-content">
+            <header class="sidebar-header">
+                <h2>🐺 À propos de WolfLink</h2>
+                <p>L'application compagnon ultime pour animer vos soirées <strong>Loup-Garou</strong> entre amis, sans cartes physiques ni triche !</p>
+            </header>
+
+            <div class="sidebar-section">
+                <h3>🎮 Comment jouer ?</h3>
+                <ol class="steps-list">
+                    <li><span class="step-num">1</span> <div><strong>Le Narrateur</strong> crée la partie et sélectionne les rôles en jeu (Loups, Voyante, Sorcière, etc.).</div></li>
+                    <li><span class="step-num">2</span> <div><strong>Les Joueurs</strong> rejoignent la salle sur leur téléphone avec le code à 6 caractères.</div></li>
+                    <li><span class="step-num">3</span> <div><strong>Partie en direct !</strong> L'appli orchestre les actions de nuit en secret et gère le chrono de débat le jour.</div></li>
+                </ol>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>🎭 Guide des Rôles</h3>
+                <div class="roles-mini-grid">
+                    <div class="role-mini-card">
+                        <span class="role-icon">🐺</span>
+                        <div>
+                            <strong>Loup-Garou</strong>
+                            <p>Se réveille la nuit pour dévorer un villageois en secret.</p>
+                        </div>
+                    </div>
+                    <div class="role-mini-card">
+                        <span class="role-icon">👁️</span>
+                        <div>
+                            <strong>Voyante</strong>
+                            <p>Découvre l'identité secrète d'un joueur chaque nuit.</p>
+                        </div>
+                    </div>
+                    <div class="role-mini-card">
+                        <span class="role-icon">🧪</span>
+                        <div>
+                            <strong>Sorcière</strong>
+                            <p>Possède une potion de soin et une potion de mort.</p>
+                        </div>
+                    </div>
+                    <div class="role-mini-card">
+                        <span class="role-icon">🛡️</span>
+                        <div>
+                            <strong>Garde</strong>
+                            <p>Protège un joueur contre l'attaque des loups chaque nuit.</p>
+                        </div>
+                    </div>
+                    <div class="role-mini-card">
+                        <span class="role-icon">🏹</span>
+                        <div>
+                            <strong>Chasseur</strong>
+                            <p>Élimine un dernier joueur au moment de sa mort.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AdSense Sidebar Banner -->
+            <div class="sidebar-ad-box">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-6605950128677335"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+    </aside>
+    </div> <!-- End .app-layout -->
 
     <!-- Global Ad Banner Placeholder -->
     <div id="ad-container" class="ad-banner">
