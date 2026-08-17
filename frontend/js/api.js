@@ -9,7 +9,7 @@ const API_BASE = `${BACKEND_URL}/api`;
 const API = {
     async createRoom(roles) {
         try {
-            const response = await fetch(`${API_BASE}/rooms`, {
+            const response = await fetch(`${API_BASE}/rooms/`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ settings: { roles } })
