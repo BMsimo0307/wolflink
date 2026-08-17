@@ -40,17 +40,32 @@ class Room(Base):
     players = relationship("Player", back_populates="room", cascade="all, delete-orphan")
     actions = relationship("GameAction", back_populates="room", cascade="all, delete-orphan")
 
+class User(Base):
+    __tablename__ = "users"
+
+    id = Column(String, primary_key=True, default=generate_uuid, index=True)
+    email = Column(String, unique=True, index=True, nullable=True)
+    name = Column(String, nullable=False)
+    avatar_url = Column(String, nullable=True)
+    provider = Column(String, default="guest") # "google", "discord", "apple", "guest"
+    provider_id = Column(String, nullable=True)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+
+    players = relationship("Player", back_populates="user")
+
 class Player(Base):
     __tablename__ = "players"
 
     id = Column(String, primary_key=True, default=generate_uuid, index=True)
     room_id = Column(String, ForeignKey("rooms.id"), nullable=False)
+    user_id = Column(String, ForeignKey("users.id"), nullable=True)
     name = Column(String, nullable=False)
     role = Column(Enum(RoleEnum), nullable=True)
     is_alive = Column(Boolean, default=True, nullable=False)
     ws_client_id = Column(String, nullable=True) # Used for WebSocket connection identification
 
     room = relationship("Room", back_populates="players")
+    user = relationship("User", back_populates="players")
 
     # Actions performed by this player
     actions_performed = relationship("GameAction", foreign_keys="[GameAction.actor_id]", back_populates="actor")

@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
 from app.db.database import engine, Base
-from app.api import rooms
+from app.api import rooms, auth
 from app.websockets import routes as ws_routes
 
 # Create database tables
@@ -34,5 +34,6 @@ app.add_middleware(
 def read_root():
     return {"message": "Welcome to WolfLink API"}
 
+app.include_router(auth.router, prefix=f"{settings.API_V1_STR}/auth", tags=["auth"])
 app.include_router(rooms.router, prefix=f"{settings.API_V1_STR}/rooms", tags=["rooms"])
 app.include_router(ws_routes.router, tags=["websockets"])

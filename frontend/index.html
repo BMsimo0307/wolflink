@@ -16,6 +16,9 @@
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6605950128677335" crossorigin="anonymous"></script>
 
+    <!-- Google Identity Services SDK -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
@@ -23,6 +26,14 @@
 <body>
     <div class="app-layout">
         <div id="app">
+            <!-- User Profile Header -->
+            <div id="user-profile-bar" class="user-profile-bar hidden">
+                <div class="user-info">
+                    <img id="user-profile-avatar" class="user-avatar" src="" alt="Avatar" style="display:none;">
+                    <span id="user-profile-name" class="user-name">Joueur</span>
+                </div>
+                <button id="btn-logout" class="btn-logout" title="Déconnexion">🚪</button>
+            </div>
         <!-- Screen: Home -->
         <section id="screen-home" class="screen active">
             <h1 class="logo">🐺 WolfLink</h1>
@@ -303,6 +314,7 @@
     </aside>
     </div> <!-- End .app-layout -->
 
+    <script src="js/auth.js"></script>
     <script src="js/api.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/websocket.js"></script>
