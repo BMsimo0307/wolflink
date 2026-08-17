@@ -763,17 +763,25 @@ input[type="number"] {
 /* ==================== ADS STYLING ==================== */
 .ad-banner {
     width: 100%;
-    max-width: 460px;
-    margin: 16px auto;
-    min-height: 60px;
+    max-width: 440px;
+    margin: 12px auto 4px auto;
+    min-height: 0;
+    max-height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px dashed rgba(255, 255, 255, 0.1);
+    background: transparent;
+    border: none;
     border-radius: var(--border-radius-sm);
     overflow: hidden;
     text-align: center;
+}
+
+.ad-banner:empty {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
 }
 
 /* ==================== LAYOUT & RESPONSIVE DESIGN ==================== */
