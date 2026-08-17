@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WolfLink - Loup-Garou Companion</title>
-    
+
     <!-- PWA / Mobile Tags -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0a0a0a">
@@ -12,19 +13,20 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="assets/icon.svg">
 
-    <!-- AdSense Placeholder (Remplacez par votre vrai script Google AdSense) -->
-    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6605950128677335" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div id="app">
         <!-- Screen: Home -->
         <section id="screen-home" class="screen active">
             <h1 class="logo">🐺 WolfLink</h1>
             <p class="subtitle">L'application compagnon pour vos parties de Loup-Garou.</p>
-            
+
             <div class="actions">
                 <button id="btn-show-create" class="btn btn-primary">Créer une partie</button>
                 <button id="btn-show-join" class="btn btn-secondary">Rejoindre une partie</button>
@@ -58,7 +60,8 @@
         <section id="screen-join" class="screen hidden">
             <h2>Rejoindre une partie</h2>
             <div class="form-group">
-                <input type="text" id="input-room-code" placeholder="Code de la salle (ex: A1B2C3)" maxlength="6" class="input-field">
+                <input type="text" id="input-room-code" placeholder="Code de la salle (ex: A1B2C3)" maxlength="6"
+                    class="input-field">
             </div>
             <div class="form-group">
                 <input type="text" id="input-player-name" placeholder="Votre Prénom / Pseudo" class="input-field">
@@ -74,12 +77,12 @@
                 <div class="room-code-display" id="lobby-room-code">------</div>
             </div>
             <p id="lobby-status" class="status-text">En attente des joueurs...</p>
-            
+
             <div class="players-list-container">
                 <h3>Joueurs connectés (<span id="player-count">0</span>)</h3>
                 <ul id="players-list"></ul>
             </div>
-            
+
             <button id="btn-start-game" class="btn btn-primary hidden">🎮 Commencer la partie</button>
         </section>
 
@@ -103,6 +106,18 @@
                 <div class="pulse-circle"></div>
                 <h2 id="waiting-title">En attente...</h2>
                 <p id="waiting-text">Le narrateur prépare la prochaine phase.</p>
+
+                <!-- Ad Slot during waiting time -->
+                <div class="ad-banner" id="ad-waiting-slot">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-6605950128677335"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
             </div>
         </section>
 
@@ -111,7 +126,7 @@
             <h2 id="night-action-title">🌙 C'est la nuit</h2>
             <p id="night-action-desc">Choisissez votre cible :</p>
             <div id="night-action-targets" class="targets-grid"></div>
-            
+
             <!-- Witch special UI -->
             <div id="witch-panel" class="hidden">
                 <div class="card">
@@ -126,7 +141,7 @@
                     <button id="btn-witch-no-poison" class="btn btn-secondary">Ne pas empoisonner</button>
                 </div>
             </div>
-            
+
             <div class="sticky-bottom">
                 <button id="btn-confirm-action" class="btn btn-primary hidden">✅ Confirmer</button>
             </div>
@@ -152,8 +167,8 @@
             <div id="debate-panel" class="debate-panel hidden">
                 <div class="timer-ring">
                     <svg viewBox="0 0 100 100" class="timer-svg">
-                        <circle cx="50" cy="50" r="45" class="timer-track"/>
-                        <circle cx="50" cy="50" r="45" class="timer-progress" id="timer-circle"/>
+                        <circle cx="50" cy="50" r="45" class="timer-track" />
+                        <circle cx="50" cy="50" r="45" class="timer-progress" id="timer-circle" />
                     </svg>
                     <div class="timer-text" id="timer-text">40</div>
                 </div>
@@ -206,7 +221,14 @@
 
     <!-- Global Ad Banner Placeholder -->
     <div id="ad-container" class="ad-banner">
-        <!-- L'emplacement où la publicité Google s'affichera -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-6605950128677335"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
     </div>
 
     <script src="js/api.js"></script>
@@ -225,4 +247,5 @@
         }
     </script>
 </body>
+
 </html>
